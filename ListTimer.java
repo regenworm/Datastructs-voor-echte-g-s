@@ -38,6 +38,13 @@ public class ListTimer extends CollectionTimer
 		list.add(elem);
 	}
 
+	/*
+		This could also have been implemented using poll,
+		if poll fails to retrieve the element it automatically
+		throws an exception. Since the code is shorter for an
+		implementation with poll it would probably be faster.
+		Though we have not tested this.
+	*/
 	// remove element from list
 	public void removeElement()
 	{
