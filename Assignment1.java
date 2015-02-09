@@ -78,14 +78,14 @@ public class Assignment1 extends Object
 		Assignment1 bench = new Assignment1();
 		for (List<Integer> list : bench.lists) {
 			ListTimer timer = new ListTimer(list);
-			System.out.println(list.getClass().getSimpleName() +
-				" = " + timer.time() + " milliseconds.");
+			System.out.format("%-13s%3s%3d%14s%n", list.getClass().getSimpleName(),
+				"=", timer.time(), "milliseconds.");
 		}
 
 		for (Queue<Integer> queue : bench.queues) {
 			QueueTimer timer = new QueueTimer(queue);
-			System.out.println(queue.getClass().getSimpleName() +
-				" = " + timer.time() + " milliseconds.");
+			System.out.format("%-13s%3s%3d%14s%n", queue.getClass().getSimpleName(),
+				"=", timer.time(),"milliseconds.");
 			
 		}
 	}
@@ -95,15 +95,14 @@ public class Assignment1 extends Object
 		Assignment1 bench = new Assignment1();
 		for (List<Integer> list : bench.lists) {
 			ListTimer timer = new ListTimer(list, elemGenSeed);
-			System.out.println(list.getClass().getSimpleName() +
-				" = " + timer.time() + " milliseconds.");
+			System.out.format("%-13s%3s%3d%14s%n", list.getClass().getSimpleName(),
+				"=", timer.time(), "milliseconds.");
 		}
 
 		for (Queue<Integer> queue : bench.queues) {
 			QueueTimer timer = new QueueTimer(queue, elemGenSeed);
-			System.out.println(queue.getClass().getSimpleName() +
-				" = " + timer.time() + " milliseconds.");
-			
+			System.out.format("%-13s%3s%3d%14s%n", queue.getClass().getSimpleName(),
+				"=", timer.time(),"milliseconds.");
 		}
 	}
 
@@ -113,15 +112,15 @@ public class Assignment1 extends Object
 		for (List<Integer> list : bench.lists) {
 			ListTimer timer = new ListTimer(list, elemGenSeed);
 			long time = timer.time(mutations);
-			System.out.println(list.getClass().getSimpleName() +
-				" = " + time + " milliseconds.");
+			System.out.format("%-13s%3s%3d%14s%n", list.getClass().getSimpleName(),
+				"=", timer.time(), "milliseconds.");
 		}
 
 		for (Queue<Integer> queue : bench.queues) {
 			QueueTimer timer = new QueueTimer(queue, elemGenSeed);
 			long time = timer.time(mutations);
-			System.out.println(queue.getClass().getSimpleName() +
-				" = " + time + " milliseconds.");
+			System.out.format("%-13s%3s%3d%14s%n", queue.getClass().getSimpleName(),
+				"=", timer.time(),"milliseconds.");
 			
 		}
 	}
