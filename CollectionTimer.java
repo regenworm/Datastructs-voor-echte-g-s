@@ -42,13 +42,14 @@ public abstract class CollectionTimer extends Object
 			{
 				removeElement();
 			}
-			return true;
-		}
-		catch (RuntimeException exception)
+		} 
+		catch (RuntimeException e) 
 		{
 			return false;
 		}
-
+		System.out.println("wat?");
+		
+		return true;
 	}
 
 	public long time()
@@ -64,11 +65,16 @@ public abstract class CollectionTimer extends Object
 		{
 			if (item > 0) 
 			{
+				System.out.println("add");
 				insert(item);
 			}
 			else 
 			{
-				extract(item);
+				System.out.println("substract");
+				if (extract(item) != true) 
+				{
+					return -1;
+				}
 			}
 		}
 
