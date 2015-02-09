@@ -15,7 +15,7 @@ public abstract class CollectionTimer extends java.lang.Object
 
 	public abstract void addElement(java.lang.Integer elem)
 	{
-		elemGen = new Random(elemGenSeed);
+
 	}
 
 	public abstract void removeElement()
@@ -25,36 +25,38 @@ public abstract class CollectionTimer extends java.lang.Object
 
 	public abstract int getSize()
 	{
-		return size;
+
 	}
 
 	public abstract boolean isEmpty()
 	{
-		if (size > 0)
-		{
-			return false;
-		}
-		else 
-		{
-			return true;
-		}
+
 	}
 
 	public void insert(int amount)
 	{
+		for (int i = 0; i < amount; i++)
+		{
+			addElement(elemGen.nextInt());
+		}
 
 	}
 
 	public boolean extract(int amount)
 	{
-		if (size >= amount)
+		try
 		{
+			for (int i = 0; i < amount; i++)
+			{
+				removeElement();
+			}
 			return true;
 		}
-		else
+		catch (RuntimeException exception)
 		{
 			return false;
 		}
+
 	}
 
 	public long time()
