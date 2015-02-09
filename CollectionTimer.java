@@ -38,7 +38,7 @@ public abstract class CollectionTimer extends Object
 	{
 		try
 		{
-			for (int i = 0; i < amount; i++)
+			for (int i = amount; i < 0; i++)
 			{
 				removeElement();
 			}
@@ -47,7 +47,6 @@ public abstract class CollectionTimer extends Object
 		{
 			return false;
 		}
-		System.out.println("wat?");
 		
 		return true;
 	}
@@ -65,12 +64,10 @@ public abstract class CollectionTimer extends Object
 		{
 			if (item > 0) 
 			{
-				System.out.println("add");
 				insert(item);
 			}
 			else 
 			{
-				System.out.println("substract");
 				if (extract(item) != true) 
 				{
 					return -1;

@@ -5,6 +5,7 @@ public class QueueTimer extends CollectionTimer
 {
 	private Queue<Integer> queue;
 
+	// init queuetimer
 	public QueueTimer(Queue<Integer> queue)
 	{
 		super();
@@ -12,15 +13,18 @@ public class QueueTimer extends CollectionTimer
 
 	}
 
+	// init queuetimer with elemgenseed
 	public QueueTimer(Queue<Integer> queue, long elemGenSeed)
 	{
 		super(elemGenSeed);
 		this.queue = queue;
 	}
 
+	// init queuetimer with unboxed elemgenseed
 	public QueueTimer(Queue<Integer> queue, Long elemGenSeed)
 	{
-
+		super(elemGenSeed);
+		this.queue = queue;
 	}
 
 	public void addElement(Integer elem)
@@ -30,9 +34,10 @@ public class QueueTimer extends CollectionTimer
 
 	public void removeElement()
 	{
-		if (queue.size() > 0)
+		// remove element if queue is not empty
+		if (queue.isEmpty() == false)
 		{
-			queue.remove(0);
+			queue.remove();
 		}
 		else 
 		{
@@ -47,7 +52,7 @@ public class QueueTimer extends CollectionTimer
 
 	public boolean isEmpty()
 	{
-		if (queue.poll() == null)
+		if (queue.size() == 0)
 		{
 			return true;
 		}

@@ -19,8 +19,8 @@ public class ListTimer extends CollectionTimer
 
 	public ListTimer(List<Integer> list, Long elemGenSeed)
 	{
-
-
+		super(elemGenSeed);
+		this.list = list;
 	}
 
 	public void addElement(Integer elem)
@@ -30,7 +30,7 @@ public class ListTimer extends CollectionTimer
 
 	public void removeElement()
 	{
-		if (list.size() > 0)
+		if (list.isEmpty() == true)
 		{
 			throw new IndexOutOfBoundsException();
 		} 
