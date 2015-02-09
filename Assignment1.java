@@ -36,40 +36,60 @@ public class Assignment1 extends Object
 		} // if  seed is specified
 		else if (args[0].equals("-s"))
 		{
-			// get seed
-			long seed = Long.parseLong(args[1]);
-
-			// if seed and mutations are specified
-			if (args.length > 2)
+			// get seed, catch
+			try
 			{
-				// length mutations is length args minus seed specification
-				int[] mutations = new int[args.length-2];
-				
-				// every arg after seed is stored in mutations after parsing
-				for (int i = 0; i < mutations.length; i++)
+				long seed = Long.parseLong(args[1]);
+				// if seed and mutations are specified
+				if (args.length > 2)
 				{
-					mutations[i] = Integer.parseInt(args[i+2]);
-				}
+					try
+					{
+						// length mutations is length args minus seed specification
+						int[] mutations = new int[args.length-2];
+						
+						// every arg after seed is stored in mutations after parsing
+						for (int i = 0; i < mutations.length; i++)
+						{
+							mutations[i] = Integer.parseInt(args[i+2]);
+						}
 
-				ass1.benchmark(seed, mutations);
-			} // if only seed is specified
-			else
+						ass1.benchmark(seed, mutations);
+					}
+					catch (NumberFormatException nfe)
+					{
+						errorExit("Not a number, specify the number of operations correctly.");
+					}
+				} // if only seed is specified
+				else
+				{
+					ass1.benchmark(seed);
+				}
+			} 
+			catch(NumberFormatException nfe)
 			{
-				ass1.benchmark(seed);
+				errorExit("Not a number, specify the seed number correctly.");
 			}
 		} // if only mutations are specified
 		else
 		{
-			// mutations is length of args
-			int[] mutations = new int[args.length];
-
-			// every arg is stored in mutations after parsing
-			for (int i = 0; i < args.length; i++)
+			try
 			{
-				mutations[i] = Integer.parseInt(args[i]);
-			}
+				// mutations is length of args
+				int[] mutations = new int[args.length];
 
-			ass1.benchmark(0, mutations);
+				// every arg is stored in mutations after parsing
+				for (int i = 0; i < args.length; i++)
+				{
+					mutations[i] = Integer.parseInt(args[i]);
+				}
+
+				ass1.benchmark(0, mutations);
+			}
+			catch (NumberFormatException nfe)
+			{
+				errorExit("Not a number, specify the number of operations correctly.");
+			}
 		}
 	}
 	/*
