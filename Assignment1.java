@@ -72,7 +72,10 @@ public class Assignment1 extends Object
 			ass1.benchmark(0, mutations);
 		}
 	}
-
+	/*
+	 * Performs benchmark by applying the specified mutations and using the given 
+	 * seed to populate the data structures. The result is printed to stdout. 
+	 */
 	public void benchmark() 
 	{
 		Assignment1 bench = new Assignment1();
@@ -89,7 +92,10 @@ public class Assignment1 extends Object
 			
 		}
 	}
-
+	/*
+	 * Performs benchmark by applying the specified mutations and using the given 
+	 * seed to populate the data structures. The result is printed to stdout. 
+	 */
 	public void benchmark(long elemGenSeed) 
 	{
 		Assignment1 bench = new Assignment1();
@@ -105,26 +111,36 @@ public class Assignment1 extends Object
 				"=", timer.time(),"milliseconds.");
 		}
 	}
-
+	/*
+	 * Performs benchmark by applying the specified mutations and using the given 
+	 * seed to populate the data structures. The result is printed to stdout. 
+	 */
 	public void benchmark(long elemGenSeed, int[] mutations) 
 	{
 		Assignment1 bench = new Assignment1();
 		for (List<Integer> list : bench.lists) {
 			ListTimer timer = new ListTimer(list, elemGenSeed);
 			long time = timer.time(mutations);
+			if (time == -1) {
+				errorExit("Incorrect number of elements");
+			}
 			System.out.format("%-13s%3s%3d%14s%n", list.getClass().getSimpleName(),
-				"=", timer.time(), "milliseconds.");
+				"=", time, "milliseconds.");
 		}
 
 		for (Queue<Integer> queue : bench.queues) {
 			QueueTimer timer = new QueueTimer(queue, elemGenSeed);
 			long time = timer.time(mutations);
+			if (time == -1) {
+				errorExit("Incorrect number of elements");
+			}
 			System.out.format("%-13s%3s%3d%14s%n", queue.getClass().getSimpleName(),
-				"=", timer.time(),"milliseconds.");
+				"=", time,"milliseconds.");
 			
 		}
 	}
 
+	// print message and exit with value 1
 	private static void errorExit(String msg) 
 	{
 		System.err.println(msg);
