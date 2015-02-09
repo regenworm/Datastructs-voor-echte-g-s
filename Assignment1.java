@@ -1,3 +1,9 @@
+/* Assignment 1, Datastructuren 2015
+ * Authors: Alex Khawalid, 10634207
+ * 			Philip Bouman, 10668667
+ * Date: 09-02-2015
+ */
+
 /* 	Default constructor. Creates an empty instance of each of
  	the data structures that are to be benchmarked. */
 import java.util.*;
@@ -121,13 +127,13 @@ public class Assignment1 extends Object
 		Assignment1 bench = new Assignment1();
 		for (List<Integer> list : bench.lists) {
 			ListTimer timer = new ListTimer(list, elemGenSeed);
-			System.out.format("%-13s%3s%3d%14s%n", list.getClass().getSimpleName(),
+			System.out.format("%-13s%3s%4d%14s%n", list.getClass().getSimpleName(),
 				"=", timer.time(), "milliseconds.");
 		}
 
 		for (Queue<Integer> queue : bench.queues) {
 			QueueTimer timer = new QueueTimer(queue, elemGenSeed);
-			System.out.format("%-13s%3s%3d%14s%n", queue.getClass().getSimpleName(),
+			System.out.format("%-13s%3s%4d%14s%n", queue.getClass().getSimpleName(),
 				"=", timer.time(),"milliseconds.");
 		}
 	}
@@ -144,7 +150,7 @@ public class Assignment1 extends Object
 			if (time == -1) {
 				errorExit("Incorrect number of elements");
 			}
-			System.out.format("%-13s%3s%3d%14s%n", list.getClass().getSimpleName(),
+			System.out.format("%-13s%3s%4d%14s%n", list.getClass().getSimpleName(),
 				"=", time, "milliseconds.");
 		}
 
@@ -154,7 +160,7 @@ public class Assignment1 extends Object
 			if (time == -1) {
 				errorExit("Incorrect number of elements");
 			}
-			System.out.format("%-13s%3s%3d%14s%n", queue.getClass().getSimpleName(),
+			System.out.format("%-13s%3s%4d%14s%n", queue.getClass().getSimpleName(),
 				"=", time,"milliseconds.");
 			
 		}
