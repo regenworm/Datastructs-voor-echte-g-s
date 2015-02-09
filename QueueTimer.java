@@ -27,11 +27,13 @@ public class QueueTimer extends CollectionTimer
 		this.queue = queue;
 	}
 
+	// add element to queue
 	public void addElement(Integer elem)
 	{
 		queue.add(elem);
 	}
 
+	// remove element from queue
 	public void removeElement()
 	{
 		// remove element if queue is not empty
@@ -45,11 +47,13 @@ public class QueueTimer extends CollectionTimer
 		}
 	}
 
+	// get size of queue
 	public int getSize()
 	{
 		return queue.size();
 	}
 
+	// check if empty
 	public boolean isEmpty()
 	{
 		if (queue.size() == 0)
