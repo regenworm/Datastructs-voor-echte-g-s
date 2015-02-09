@@ -1,7 +1,11 @@
-public abstract class CollectionTimer extends java.lang.Object
+import java.util.*;
+import java.lang.*;
+
+
+public abstract class CollectionTimer extends Object
 {
 	public static final int[] DEFAULT_MUTATIONS = {10000, -10000};
-	private java.util.Random elemGen;
+	private Random elemGen;
 
 	public CollectionTimer()
 	{
@@ -13,25 +17,13 @@ public abstract class CollectionTimer extends java.lang.Object
 		elemGen = new Random(elemGenSeed);
 	}
 
-	public abstract void addElement(java.lang.Integer elem)
-	{
+	public abstract void addElement(Integer elem);
 
-	}
+	public abstract void removeElement();
 
-	public abstract void removeElement()
-	{
+	public abstract int getSize();
 
-	}
-
-	public abstract int getSize()
-	{
-
-	}
-
-	public abstract boolean isEmpty()
-	{
-
-	}
+	public abstract boolean isEmpty();
 
 	public void insert(int amount)
 	{
@@ -68,15 +60,15 @@ public abstract class CollectionTimer extends java.lang.Object
 	{
 		long start = System.currentTimeMillis();
 		
-		for (i = 0; i < mutations.size(); i++)
+		for (int item : mutations)
 		{
-			if (i > 0) 
+			if (item > 0) 
 			{
-				insert(mutations[i]);
+				insert(item);
 			}
 			else 
 			{
-				extract(mutations[i])
+				extract(item);
 			}
 		}
 

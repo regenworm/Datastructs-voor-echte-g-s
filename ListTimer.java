@@ -1,35 +1,38 @@
+import java.util.*;
+import java.lang.*;
+
 public class ListTimer extends CollectionTimer
 {
-	private java.util.List<java.lang.Integer> list;
+	private List<Integer> list;
 
-	public ListTimer(java.util.List<java.lang.Integer> list)
+	public ListTimer(List<Integer> list)
 	{
-		temp = ListTimer();
-		temp.list = list;
+		super();
+		this.list = list;
 	}
 
-	public ListTimer(java.util.List<java.lang.Integer> list, long elemGenSeed)
+	public ListTimer(List<Integer> list, long elemGenSeed)
 	{
-		temp = ListTimer(elemGenSeed);
-		temp.list = list;
+		super(elemGenSeed);
+		this.list = list;
 	}
 
-	public ListTimer(java.util.List<java.lang.Integer> list, java.lang.Long elemGenSeed)
+	public ListTimer(List<Integer> list, Long elemGenSeed)
 	{
 
 
 	}
 
-	public void addElement(java.lang.Integer elem)
+	public void addElement(Integer elem)
 	{
 		list.add(elem);
 	}
 
 	public void removeElement()
 	{
-		if (list.size > 0)
+		if (list.size() > 0)
 		{
-			throw new java.lang.IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException();
 		} 
 		else 
 		{

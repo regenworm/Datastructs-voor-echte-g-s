@@ -1,27 +1,29 @@
+import java.util.*;
+import java.lang.*;
+
 public class QueueTimer extends CollectionTimer
 {
-	private java.util.Queue<java.lang.Integer> queue;
+	private Queue<Integer> queue;
 
-	public QueueTimer(java.util.Queue<java.lang.Integer> queue)
+	public QueueTimer(Queue<Integer> queue)
 	{
-		temp = QueueTimer();
-		temp.queue = queue;
+		super();
+		this.queue = queue;
 
 	}
 
-	public QueueTimer(java.util.Queue<java.lang.Integer> queue, long elemGenSeed)
+	public QueueTimer(Queue<Integer> queue, long elemGenSeed)
 	{
-		temp = QueueTimer(elemGenSeed);
-		temp.queue = queue;
+		super(elemGenSeed);
+		this.queue = queue;
+	}
+
+	public QueueTimer(Queue<Integer> queue, Long elemGenSeed)
+	{
 
 	}
 
-	public QueueTimer(java.util.Queue<java.lang.Integer> queue, java.lang.Long elemGenSeed)
-	{
-
-	}
-
-	public void addElement(java.lang.Integer elem)
+	public void addElement(Integer elem)
 	{
 		queue.add(elem);
 	}
@@ -34,7 +36,7 @@ public class QueueTimer extends CollectionTimer
 		}
 		else 
 		{
-			throw new java.util.NoSuchElementException();
+			throw new NoSuchElementException();
 		}
 	}
 
