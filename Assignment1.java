@@ -6,8 +6,7 @@ public class Assignment1 extends java.lang.Object
 	private  java.util.ArrayList<java.util.List<java.lang.Integer>> lists,queues;
 	
 
-	public Assignment1() 
-	{
+	public Assignment1() {
 		lists = new ArrayList<List<Integer>>();
 		lists.add(new ArrayList<Integer>());
 		lists.add(new LinkedList<Integer>());
@@ -21,44 +20,24 @@ public class Assignment1 extends java.lang.Object
 
 	public static void main(java.lang.String[] args)
 	{
-		Assignment1 ass1 = new Assignment1();
-		int useseed = 0;
-		// get seed
-		if (args.length == 0)
-		{
-			ass1.benchmark();
-		}
-		else if (args[0] == "-s")
-		{
-			long seed = args[1];
-			if (args.length > 1)
-			{
-				for (i = 2; i < args.length; i++)
-				{
-					mutations[i] = Integer.parseInt(args[i]);
-				}
-
-				ass1.benchmark(seed, mutations);
-			}
-			else
-			{
-				ass1.benchmark(seed);
-			}
-		}
-		else
-		{
-			for (i = 0; i < args.length; i++)
-			{
-				mutations[i] = Integer.parseInt(args[i]);
-			}
-			ass1.benchmark(0, mutations);
-		}
-
+		
 	}
 
 	public void benchmark() 
 	{
+		Assignment1 bench = new Assignment1();
+		for (List<Integer> list : bench.lists) {
+			ListTimer timer = new ListTimer(list);
+			System.out.println(list.getClass().getSimpleName() +
+				" = " + timer.time() + " milliseconds.");
+		}
 
+		for (Queue<Integer> queue : bench.queues) {
+			QueueTimer timer = new QueueTimer(queue);
+			System.out.println(queue.getClass().getSimpleName() +
+				" = " + timer.time() + " milliseconds.");
+			
+		}
 	}
 
 	public void benchmark(long elemGenSeed) 
