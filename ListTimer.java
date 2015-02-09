@@ -4,13 +4,13 @@ public class ListTimer extends CollectionTimer
 
 	public ListTimer(java.util.List<java.lang.Integer> list)
 	{
-		temp = CollectionTimer();
+		temp = ListTimer();
 		temp.list = list;
 	}
 
 	public ListTimer(java.util.List<java.lang.Integer> list, long elemGenSeed)
 	{
-		temp = CollectionTimer(elemGenSeed);
+		temp = ListTimer(elemGenSeed);
 		temp.list = list;
 	}
 
@@ -33,7 +33,14 @@ public class ListTimer extends CollectionTimer
 		} 
 		else 
 		{
-			list.remove(0);
+			try
+			{
+				list.remove(0);
+			}
+			catch (UnsupportedOperationException exception)
+			{
+				throw exception;
+			}
 		}
 	}
 

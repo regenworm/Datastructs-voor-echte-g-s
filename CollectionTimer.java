@@ -61,11 +61,26 @@ public abstract class CollectionTimer extends java.lang.Object
 
 	public long time()
 	{
-
+		return time(DEFAULT_MUTATIONS);
 	}
 
 	public long time(int[] mutations)
 	{
+		long start = System.currentTimeMillis();
+		
+		for (i = 0; i < mutations.size(); i++)
+		{
+			if (i > 0) 
+			{
+				insert(mutations[i]);
+			}
+			else 
+			{
+				extract(mutations[i])
+			}
+		}
 
+		long end = System.currentTimeMillis();
+		return end - start;
 	}
 }

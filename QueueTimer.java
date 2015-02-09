@@ -4,14 +4,14 @@ public class QueueTimer extends CollectionTimer
 
 	public QueueTimer(java.util.Queue<java.lang.Integer> queue)
 	{
-		temp = CollectionTimer();
+		temp = QueueTimer();
 		temp.queue = queue;
 
 	}
 
 	public QueueTimer(java.util.Queue<java.lang.Integer> queue, long elemGenSeed)
 	{
-		temp = CollectionTimer(elemGenSeed);
+		temp = QueueTimer(elemGenSeed);
 		temp.queue = queue;
 
 	}
