@@ -10,6 +10,7 @@ public class Assignment1 extends Object
 	private  ArrayList<Queue<Integer>> queues;
 	
 
+	// init interfaces
 	public Assignment1() {
 		lists = new ArrayList<List<Integer>>();
 		lists.add(new ArrayList<Integer>());
@@ -22,44 +23,54 @@ public class Assignment1 extends Object
 		queues.add(new PriorityQueue<Integer>());
 	}
 
+	// main code
 	public static void main(String[] args)
 	{
+		// init class
 		Assignment1 ass1 = new Assignment1();
-		int useseed = 0;
-		// get seed
+
+		// If no options are added in commandline
 		if (args.length == 0)
 		{
 			ass1.benchmark();
-		}
-		else if (args[0] == "-s")
+		} // if  seed is specified
+		else if (args[0].equals("-s"))
 		{
+			// get seed
 			long seed = Long.parseLong(args[1]);
-			if (args.length > 1)
+
+			// if seed and mutations are specified
+			if (args.length > 2)
 			{
+				// length mutations is length args minus seed specification
 				int[] mutations = new int[args.length-2];
-				for (int i = 0; i < args.length; i++)
+				
+				// every arg after seed is stored in mutations after parsing
+				for (int i = 0; i < mutations.length; i++)
 				{
 					mutations[i] = Integer.parseInt(args[i+2]);
 				}
 
 				ass1.benchmark(seed, mutations);
-			}
+			} // if only seed is specified
 			else
 			{
 				ass1.benchmark(seed);
 			}
-		}
+		} // if only mutations are specified
 		else
 		{
+			// mutations is length of args
 			int[] mutations = new int[args.length];
+
+			// every arg is stored in mutations after parsing
 			for (int i = 0; i < args.length; i++)
 			{
 				mutations[i] = Integer.parseInt(args[i]);
 			}
+
 			ass1.benchmark(0, mutations);
 		}
-
-
 	}
 
 	public void benchmark() 
