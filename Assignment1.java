@@ -81,12 +81,38 @@ public class Assignment1 extends Object
 
 	public void benchmark(long elemGenSeed) 
 	{
-		
+		Assignment1 bench = new Assignment1();
+		for (List<Integer> list : bench.lists) {
+			ListTimer timer = new ListTimer(list, elemGenSeed);
+			System.out.println(list.getClass().getSimpleName() +
+				" = " + timer.time() + " milliseconds.");
+		}
+
+		for (Queue<Integer> queue : bench.queues) {
+			QueueTimer timer = new QueueTimer(queue, elemGenSeed);
+			System.out.println(queue.getClass().getSimpleName() +
+				" = " + timer.time() + " milliseconds.");
+			
+		}
 	}
 
 	public void benchmark(long elemGenSeed, int[] mutations) 
 	{
-		
+		Assignment1 bench = new Assignment1();
+		for (List<Integer> list : bench.lists) {
+			ListTimer timer = new ListTimer(list, elemGenSeed);
+			long time = timer.time(mutations);
+			System.out.println(list.getClass().getSimpleName() +
+				" = " + time + " milliseconds.");
+		}
+
+		for (Queue<Integer> queue : bench.queues) {
+			QueueTimer timer = new QueueTimer(queue, elemGenSeed);
+			long time = timer.time(mutations);
+			System.out.println(queue.getClass().getSimpleName() +
+				" = " + time + " milliseconds.");
+			
+		}
 	}
 
 	private static void errorExit(String msg) 
